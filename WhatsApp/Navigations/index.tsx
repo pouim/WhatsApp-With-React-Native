@@ -11,7 +11,7 @@ import ChatRoomScreen from '../Screens/ChatRoomScreen';
 import { RootStackParamList } from '../types';
 import MainTabNavigator from './MainTabNavigator';
 import Colors from "../Constants/Colors";
-import ContactsScreen from "../Screens/SecondScreen";
+import ContactsScreen from "../Screens/ContactsScreen";
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -121,6 +121,10 @@ function RootNavigator() {
           },
           }
         ) }
+      />
+      <Stack.Screen
+        name="Contacts"
+        component={ContactsScreen}
       />
       <Stack.Screen
         name="NotFound"
