@@ -4,9 +4,10 @@ import React from 'react';
 import {ColorSchemeName, View, Text} from 'react-native';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FontAwesome5 from 'react-native-vector-icons/MaterialCommunityIFontAwesome5cons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import NotFoundScreen from '../Screens/NotFoundScreen';
-import ChatRoomScreen from '../Screens/ChatScreen';
+import ChatRoomScreen from '../Screens/ChatRoomScreen';
 import { RootStackParamList } from '../types';
 import MainTabNavigator from './MainTabNavigator';
 import Colors from "../Constants/Colors";
@@ -91,6 +92,35 @@ function RootNavigator() {
             );
           },
         }}
+      />
+       <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoomScreen}
+        options= {({route}) => (
+          {
+            title: route.params.name,
+            headerRight: () => {
+            return (
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: 100,
+                  justifyContent: "space-between",
+                  marginRight: 10,
+                }}
+              >
+                <FontAwesome5 name="video" size={20} color="white"  />
+                <MaterialIcons name="call" size={20} color="white" />
+                <MaterialCommunityIcons
+                  name="dots-vertical"
+                  size={20}
+                  color="white"
+                />
+              </View>
+            );
+          },
+          }
+        ) }
       />
       <Stack.Screen
         name="NotFound"

@@ -31,7 +31,7 @@ export type Message = {
   id: String;
   content: string;
   createdAt: string;
-  // user: User;
+  user: User;
 }
 
 export type ChatRoom = {
