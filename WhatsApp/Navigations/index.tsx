@@ -6,7 +6,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/MaterialCommunityIFontAwesome5cons';
 import NotFoundScreen from '../Screens/NotFoundScreen';
-import ChatRoomScreen from '../Screens/FirstScreen';
+import ChatRoomScreen from '../Screens/ChatScreen';
 import { RootStackParamList } from '../types';
 import MainTabNavigator from './MainTabNavigator';
 import Colors from "../Constants/Colors";

@@ -8,7 +8,7 @@ import Fontisto from "react-native-vector-icons/Fontisto";
 
 import Colors from '../Constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../Screens/FirstScreen';
+import ChatScreen from '../Screens/ChatScreen';
 import TabTwoScreen from '../Screens/SecondScreen';
 import { MainTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
@@ -41,7 +41,7 @@ export default function MainTabNavigator() {
       />
       <MainTab.Screen
         name="Chats"
-        component={TabTwoNavigator}
+        component={TabOneNavigator}
       />
       <MainTab.Screen
         name="Status"
@@ -70,8 +70,8 @@ function TabOneNavigator() {
     <TabOneStack.Navigator>
       <TabOneStack.Screen
         name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: false }}
+        component={ChatScreen}
+        options={{ headerShown: false }}
       />
     </TabOneStack.Navigator>
   );
@@ -85,7 +85,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: false,}}
+        options={{ headerShown: false}}
       />
     </TabTwoStack.Navigator>
   );
