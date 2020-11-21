@@ -25,7 +25,7 @@ const ChatListItem = (props: ChatListItemProps) => {
     <TouchableWithoutFeedback onPress={onClick}>
       <View style={styles.container}>
         <View style={styles.leftContainer}>
-          <Image source={{uri: user.imageUri}} style={styles.avatar} />
+          <Image source={{uri:'https://lkbkspro.s3.amazonaws.com/atelier-management/gs_58d933b8-98b4-468e-b229-43100a9620a7.jpg'}} style={styles.avatar} />
           <View style={styles.midContainer}>
             <Text style={styles.username}>{user.name}</Text>
             <Text style={styles.lastMessage}>
