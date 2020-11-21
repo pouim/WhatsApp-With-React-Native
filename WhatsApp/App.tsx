@@ -6,11 +6,12 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './Navigations';
 ///Amplify///
-import Amplify from 'aws-amplify'
-import config from './aws-exports'
-Amplify.configure(config)
+import Amplify from 'aws-amplify';
+import {withAuthenticator} from 'aws-amplify-react-native';
+import config from './aws-exports';
+Amplify.configure(config);
 
-export default function App() {
+const App = () => {
   const colorScheme = useColorScheme();
 
   return (
@@ -19,6 +20,6 @@ export default function App() {
       <StatusBar />
     </SafeAreaProvider>
   );
-}
+};
 
-export default App;
+export default withAuthenticator(App);
