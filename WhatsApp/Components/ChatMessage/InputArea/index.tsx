@@ -53,7 +53,7 @@ const InputArea = (props) => {
               input: {
                 content: message,
                 userID: myUserId,
-                chatRoomID
+                chatRoomID: chatRoomID
               }
             }
           )
