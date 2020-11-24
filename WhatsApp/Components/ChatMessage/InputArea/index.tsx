@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -12,10 +12,23 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
 
-const InputArea = () => {
+import {API, graphqlOperation, Auth} from 'aws-amplify';
+import { createMessage } from '../../../graphql/mutations';
+
+const InputArea = (props) => {
+  const { chatRoomID } = props;
   const [message, setMessage] = useState('');
+  const [myUserId, setMyUserId] = useState(null);
 
+  useEffect(() => {
+   const fetchUser = async () => {
+    const userInfo = await Auth.currentAuthenticatedUser();
+    setMyUserId(userInfo.attributes.sub);
+   };
 
+   fetchUser();
+  }, [])
+  
 
   //methods///
   const onButtonClickHandler = () => {
@@ -32,9 +45,22 @@ const InputArea = () => {
   };
    
 
-   const onSendPressHandler = () => {
-      console.warn("send button clicked");
-      //Send To Backend
+   const onSendPressHandler = async () => {
+      try {
+        await API.graphql(
+          graphqlOperation(
+            createMessage, {
+              input: {
+                content: message,
+                userID: myUserId,
+                chatRoomID
+              }
+            }
+          )
+        )
+      } catch (e) {
+        console.log(e);
+      }
       setMessage("");
   };
 

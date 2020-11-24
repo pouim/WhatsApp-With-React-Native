@@ -45,7 +45,7 @@ const ChatListItem = (props: ChatListItemProps) => {
   if (!otherUser) {
     return null;
   }
-  console.log("ajab: " + JSON.stringify(chatRoom.chatRoomUsers));
+
   return (
     <TouchableWithoutFeedback onPress={onClick}>
       <View style={styles.container}>
